@@ -1,7 +1,11 @@
 'use strict'
 
 function isFunction (funktion) {
-  return funktion && {}.toString.call(funktion) === '[object Function]'
+  const str = {}.toString.call(funktion)
+  return funktion && (
+    str === '[object Function]' ||
+    str === '[object AsyncFunction]'
+  )
 }
 
 // Default to complaining loudly when things don't go according to plan.
